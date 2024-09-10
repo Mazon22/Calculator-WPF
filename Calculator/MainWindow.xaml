@@ -1,0 +1,74 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="350" Width="400" MinHeight="350" MinWidth="400">
+    <Window.Resources>
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Background" Value="Wheat"/>
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderThickness" Value="3"/>
+    </Style>
+    </Window.Resources>
+    <Grid Background="Orange">
+        <!-- Определение колонок -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Определение строк -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Для текстового поля -->
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Текстовое поле для ввода/вывода -->
+        <TextBox Grid.ColumnSpan="4" Grid.Row="0" Height="60" VerticalContentAlignment="Center"
+                 FontSize="24" TextAlignment="Right" Name="InputTextBox" IsReadOnly="True"
+                 Margin="5" />
+
+        <!-- Кнопки для цифр и операций -->
+        <!-- Первая строка кнопок (7, 8, 9, /) -->
+        <Button Grid.Row="1" Grid.Column="0" Content="7" FontSize="24" Name="Btn7" Click="NumberButton_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" Content="8" FontSize="24" Name="Btn8" Click="NumberButton_Click"/>
+        <Button Grid.Row="1" Grid.Column="2" Content="9" FontSize="24" Name="Btn9" Click="NumberButton_Click"/>
+        <Button Grid.Row="1" Grid.Column="3" Content="/" FontSize="24" Name="BtnDivide" Click="OperationButton_Click"/>
+
+        <!-- Вторая строка кнопок (4, 5, 6, *) -->
+        <Button Grid.Row="2" Grid.Column="0" Content="4" FontSize="24" Name="Btn4" Click="NumberButton_Click"/>
+        <Button Grid.Row="2" Grid.Column="1" Content="5" FontSize="24" Name="Btn5" Click="NumberButton_Click"/>
+        <Button Grid.Row="2" Grid.Column="2" Content="6" FontSize="24" Name="Btn6" Click="NumberButton_Click"/>
+        <Button Grid.Row="2" Grid.Column="3" Content="*" FontSize="24" Name="BtnMultiply" Click="OperationButton_Click"/>
+
+        <!-- Третья строка кнопок (1, 2, 3, -) -->
+        <Button Grid.Row="3" Grid.Column="0" Content="1" FontSize="24" Name="Btn1" Click="NumberButton_Click"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="2" FontSize="24" Name="Btn2" Click="NumberButton_Click"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="3" FontSize="24" Name="Btn3" Click="NumberButton_Click"/>
+        <Button Grid.Row="3" Grid.Column="3" Content="-" FontSize="24" Name="BtnSubtract" Click="OperationButton_Click"/>
+
+        <!-- Четвертая строка кнопок (C, 0, =, +) -->
+        <Button Grid.Row="4" Grid.Column="0" Content="C" FontSize="24" Name="BtnClear" Click="BtnClear_Click"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="0" FontSize="24" Name="Btn0" Click="NumberButton_Click"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="," FontSize="24" Name="BtnComma" Click="BtnComma_Click"/>
+        <Button Grid.Row="4" Grid.Column="3" Content="+" FontSize="24" Name="BtnAdd" Click="OperationButton_Click"/>
+
+        <!-- Пятая строка кнопки "=" -->
+        <Button Grid.Row="5" Grid.ColumnSpan="4" Content="=" FontSize="24" Background="DarkGoldenrod" 
+                Name="BtnEquals" Click="BtnEquals_Click" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+    </Grid>
+</Window>
