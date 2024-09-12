@@ -6,35 +6,39 @@ namespace Calculator
 {
     public partial class MainWindow : Window
     {
-        private string _input = string.Empty;    // Текущее число
-        private string _operand1 = string.Empty; // Первое число
-        private string _operand2 = string.Empty; // Второе число
-        private char _operation;                 // Операция
-        private bool _isOperationPerformed = false; // Флаг нажатия операции
+        private string _input = string.Empty;                                                                                                   
+        private string _operand1 = string.Empty;                                                                                               
+        private string _operand2 = string.Empty;                                                                                        
+        private char _operation;                                                                                                           
+        private bool _isOperationPerformed = false;
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        // Метод обработки нажатия цифровых кнопок
+        /// <summary>
+        /// Метод обработки нажатия цифровых кнопок.
+        /// </summary>
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
 
-            // Если ранее была выполнена операция, очищаем поле
+            // Если ранее была выполнена операция, очищаем поле.
             if (_isOperationPerformed)
             {
                 _input = string.Empty;
                 _isOperationPerformed = false;
             }
 
-            // Обрабатываем ввод числа
+            // Обрабатываем ввод числа.
             _input += button.Content.ToString();
             InputTextBox.Text = _input;
         }
 
-        // Метод обработки нажатия кнопки запятой
+        /// <summary>
+        /// Метод обработки нажатия кнопки запятой.
+        /// </summary>
         private void BtnComma_Click(object sender, RoutedEventArgs e)
         {
             if (!_input.Contains(","))
@@ -44,7 +48,9 @@ namespace Calculator
             }
         }
 
-        // Метод обработки нажатия кнопок операций (+, -, *, /)
+        /// <summary>
+        /// Метод обработки нажатия кнопок операций (+, -, *, /).
+        /// </summary>
         private void OperationButton_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;
@@ -57,7 +63,9 @@ namespace Calculator
             }
         }
 
-        // Метод обработки нажатия кнопки равно (=)
+        /// <summary>
+        /// Метод обработки нажатия кнопки равно (=).
+        /// </summary>
         private void BtnEquals_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(_operand1) && !string.IsNullOrEmpty(_input))
@@ -70,7 +78,7 @@ namespace Calculator
                     double num2 = Convert.ToDouble(_operand2);
                     double result = 0;
 
-                    // Выполняем арифметическую операцию
+                    // Выполняем арифметическую операцию.
                     switch (_operation)
                     {
                         case '+':
@@ -83,7 +91,7 @@ namespace Calculator
                             result = num1 * num2;
                             break;
                         case '/':
-                            // Обрабатываем деление на 0
+                            // Обрабатываем деление на 0.
                             if (num2 != 0)
                                 result = num1 / num2;
                             else
@@ -91,7 +99,7 @@ namespace Calculator
                             break;
                     }
 
-                    // Отображаем результат
+                    // Отображаем результат.
                     InputTextBox.Text = result.ToString();
                     _input = result.ToString();
                 }
@@ -112,7 +120,9 @@ namespace Calculator
             }
         }
 
-        // Метод обработки нажатия кнопки сброса (C)
+        /// <summary>
+        /// Метод обработки нажатия кнопки сброса (C).
+        /// </summary>
         private void BtnClear_Click(object sender, RoutedEventArgs e)
         {
             _input = string.Empty;

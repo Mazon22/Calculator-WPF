@@ -5,18 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
-        Title="Калькулятор" Height="350" Width="400" MinHeight="350" MinWidth="400">
+        Title="Калькулятор"
+        Icon="Images\calculator.ico"
+        Height="350" Width="400" 
+        MinHeight="350" MinWidth="400"
+        MaxHeight="550" MaxWidth="600">
+
     <Window.Resources>
-    <Style TargetType="Button">
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="FontSize" Value="24"/>
-        <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Background" Value="Wheat"/>
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="BorderThickness" Value="3"/>
-    </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Wheat"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
     </Window.Resources>
+
     <Grid Background="Orange">
         <!-- Определение колонок -->
         <Grid.ColumnDefinitions>
